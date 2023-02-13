@@ -1,6 +1,7 @@
 import { createParamDecorator, ExecutionContext } from '@nestjs/common'
 import { Request } from 'express'
 import { pickBy, Dictionary, isString, mapKeys } from 'lodash'
+import { FilterComparator } from './operator'
 
 export interface PaginateQuery {
     page?: number
@@ -9,6 +10,7 @@ export interface PaginateQuery {
     searchBy?: string[]
     search?: string
     filter?: { [column: string]: string | string[] }
+    comparator?: FilterComparator[]
     select?: string[]
     path: string
 }
